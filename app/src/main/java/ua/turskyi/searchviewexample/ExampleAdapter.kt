@@ -24,13 +24,10 @@ class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>(),
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ExampleViewHolder {
-        val v: View = LayoutInflater.from(parent.context).inflate(
+    ) = ExampleViewHolder(LayoutInflater.from(parent.context).inflate(
             R.layout.example_item,
             parent, false
-        )
-        return ExampleViewHolder(v)
-    }
+        ))
 
     override fun onBindViewHolder(
         holder: ExampleViewHolder,
@@ -42,13 +39,9 @@ class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>(),
         holder.textView2.text = text2
     }
 
-    override fun getItemCount(): Int {
-        return exampleList.size
-    }
+    override fun getItemCount() = exampleList.size
 
-    override fun getFilter(): Filter {
-        return exampleFilter
-    }
+    override fun getFilter()= exampleFilter
 
     private val exampleFilter: Filter = object : Filter() {
         override fun performFiltering(constraint: CharSequence): FilterResults {
